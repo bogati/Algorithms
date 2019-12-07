@@ -1,2 +1,2 @@
 # Algorithms
-Combinations of Various coding challenges  
+Combination of Various coding challenges  

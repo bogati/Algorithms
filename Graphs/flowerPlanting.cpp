@@ -49,6 +49,7 @@ public:
         } 
         //I AM JUST LAZY TO FIX THE INDEXING RIGHT NOW 
         //DO IT LATER , THIS IS NOT GOOD PRACTICE !!!
+        //THIS COPYING VALUES IN ARRAY IS CHEATING TOO :D
         vector<int> vec ;
         for(int i=1; i<result.size();i++){
             vec.push_back(result[i]);

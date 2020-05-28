@@ -1,0 +1,92 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+struct node{
+  int val; 
+  struct node * left;
+  struct node * right;
+};
+//function to create the node 
+struct node * newNode(int val){
+  struct node * temp = new node();
+  temp->val = val;
+  temp->left = NULL;
+  temp->right = NULL;
+  
+  return temp; 
+} //end of newNode function 
+
+
+node * convert_Tobst(vector<int> arr, node * root){
+  
+  
+  for(int i=1; i<arr.size(); i++){
+    node * curr_node = newNode(arr[i]);
+    //at the beginning of each for loop 
+    //we will assign the the temp pointer with root value
+    node * temp = root ;
+    while(1){
+      if(curr_node->val < temp->val){
+        //checking to see if we have empty space to insert val
+        if(temp->left==NULL){
+          temp->left = curr_node;
+          break;
+           
+        }else{
+          //keep iterating the tree
+          temp=temp->left;
+        }
+      }//end of if
+      else if (curr_node->val >= temp->val){
+        if(temp->right==NULL){
+          temp->right = curr_node;
+          break;
+          
+        }else{
+          //keep iterating the tree
+          temp=temp->right;
+        }
+        
+      } //end of else if 
+        
+  } //end of while
+      
+  } //end of the for loop  
+  
+  
+  return root; 
+  
+} //end of the convert_BST function 
+
+void traverseTree(vector<int>& arr2, node* root){
+  if(!root){
+    return; 
+  }
+  traverseTree(arr2,root->left);
+  traverseTree(arr2,root->right);
+  arr2.push_back(root->val);
+  
+}
+
+
+
+int main() {
+  vector<int> arr = {12,15,5,9,1,3,20,17,19,2,4,16};
+  node * root = newNode(arr[0]);
+  //call the function and print the values of the root or 
+  //create a new array and put the values in it as you iterate
+  //compare if that array is same as the original array 
+  convert_Tobst(arr,root);
+  
+  vector<int> arr2; 
+  traverseTree(arr2,root);
+  
+  for(int i=0; i<arr2.size(); i++){
+    cout << arr2[i]<<endl;
+  }
+  
+  
+  
+	return 0;
+} //end of main() function 

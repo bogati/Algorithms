@@ -1,0 +1,67 @@
+#include <iostream>
+#include <unordered_map>
+#include <math.h>
+
+/*
+Given an integer, sort the digits in ascending order and return the new integer.
+Ignore leading zeros.  8970 ---789 is the output 
+
+*/
+
+//The main takeaway with this problem was when exactly to 
+// put the power -- outside for ? , outside if , inside while
+using namespace std;
+
+int sortAsc(int num){
+  
+  unordered_map<int,int> num_ht; 
+  
+  int rem = 0;
+  while(num!=0){
+    rem = num%10;
+    num = num/10;
+    if(num_ht.find(rem) == num_ht.end()){
+      //if the value is not in ht
+      num_ht[rem] = 1;
+      
+    }else{
+      num_ht[rem] = num_ht[rem]+1; 
+      
+    }
+    //cout <<"rem"<<rem<<endl;
+    //cout <<"num"<<num<<endl;
+    
+  }
+  int powr =0;
+  int result=0; 
+  for(int i=9; i>0; i--){
+     if(num_ht.find(i) != num_ht.end()){
+       //cout <<"value in ht is "<<i<<"with count"<<num_ht[i]<<endl;
+       //cout <<"power value is "<<powr<<endl;
+       int count= num_ht[i];
+       while(count>=1){
+         result = result + i*pow(10,powr);
+         count--;
+         
+          powr = powr +1;
+       }
+   
+    
+  } //end of if -ht
+  
+   
+  } //end of for loop 
+  
+  return result;
+  
+} //end of the function 
+
+
+int main() {
+	cout << sortAsc(789123) <<endl;
+  cout << sortAsc(1234567) <<endl;
+  cout << sortAsc(0000000) <<endl;
+  cout << sortAsc(1111111) <<endl;
+  //cout << sortAsc(-1111111) <<endl;
+	return 0;
+}

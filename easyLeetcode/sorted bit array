@@ -1,0 +1,51 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+/*
+Given a sorted bit array (values of either 0 or 1), determine the number of 1’s in the array.
+
+Perform this in O(log(N)) time complexity.
+[0,0,0,1,1,1,1,1,1,1,1] 
+*/
+
+int numOnes(vector<int> vec){
+  int nums =0; 
+  
+  //time complexity has to be O(logN)
+  int start=0; 
+  int end=vec.size()-1;
+  int mid=0 ;  
+  while(start<=end){
+    mid = start + ((end-start))/2;
+    cout <<mid<<endl;
+    if(vec[mid]==1){
+      nums = nums + (end-mid+1);
+      //go left 
+      end = mid-1;
+      cout <<"end"<<end<<endl;
+    }else if (vec[mid]==0){
+      start = mid+1;
+      cout <<"start"<<start<<endl;
+    }
+    
+    
+  } //end of the while loop 
+  
+  return nums; 
+}
+
+int main() {
+	//vector<int> vec = {0,0,0,1,1,1,1,1,1,1,1};
+  //vector<int> vec={1,1,1,1,1,1,1,1,1,1,1};
+  //vector<int> vec = {0,0,0,0,0,0,0,0};
+  /*does not work for this array as it is not sorted 
+  vector<int> vec = {1,1,1,0,0,0};
+  */
+ //vector<int> vec = {0,0,1,1,1,1};
+ //vector<int> vec = {0,0,0,0,1};
+ //vector<int> vec = {1};
+ //vector<int> vec = {0}; 
+  cout << numOnes(vec);
+  
+	return 0;
+}

@@ -6,6 +6,8 @@ Given a sorted bit array (values of either 0 or 1), determine the number of 1’
 
 Perform this in O(log(N)) time complexity.
 [0,0,0,1,1,1,1,1,1,1,1] 
+
+//https://codeinterview.io/ZMHVVMDQWK 
 */
 
 int numOnes(vector<int> vec){

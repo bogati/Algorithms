@@ -1,0 +1,27 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+
+
+void helper(vector<int> vec,int i){
+  //base case 
+  if (i>=vec.size()){
+    return;
+  }
+  //recursive case 
+  cout<< vec[i]<<endl;
+  helper(vec,i+1);
+}
+void printNums(vector<int> vec){
+  int i=0;
+  helper(vec,i);
+}
+
+int main() {
+	vector<int> vec ={1,2,3,4,5,6,7};
+  printNums(vec);
+  
+	return 0;
+}
+// code interview link : https://codeinterview.io/CMXFWFQZPB 

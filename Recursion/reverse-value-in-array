@@ -8,10 +8,12 @@ using namespace std;
  
  void helper(vector<int> vec, int i){
    //base case 
+   //if(i<0){return;}
    if(i>=vec.size()){
      return;
    }
    //rec case 
+   //cout << vec[i]<<endl; 
    helper(vec,i+1);
    cout << vec[i] <<endl ;
    
@@ -20,6 +22,7 @@ using namespace std;
   void printRev(vector<int> vec){
    
    helper(vec,0);
+   //helper(vec,vec.size()-1);
    
  }
  

@@ -1,0 +1,55 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+/*
+2d. Given an array of positive integers, create an array 
+of two-item integer arrays (two dimensional integer array) 
+using Helper Method Recursion
+Input:   Array of Integers
+Output:  two-dimensional Integer Array
+ */ 
+ void helper( vector<vector<int>>& result,vector<int> vec, int i){
+   //base case 
+   if(vec.size()%2 ==1 && i==vec.size()-1){
+     //if the num of elements are odd
+     vector<int> temp; 
+     temp.push_back(vec[i]);
+     result.push_back(temp); 
+     return;
+   } //end of if 
+   
+   if(i>=vec.size()){
+     return;
+   }
+   //recursive case 
+   vector<int> temp; 
+   temp.push_back(vec[i]);
+   temp.push_back(vec[i+1]);
+   
+   result.push_back(temp); 
+   helper(result,vec,i+2);
+   
+ } //end of the helper function 
+ 
+  vector<vector<int>> decompose(vector<int> vec){
+   //count will keep track of total number of elems in vec
+   
+   vector<vector<int>> result;
+    
+   helper(result,vec,0);
+   return result;
+ } //end of the decompose function 
+ 
+int main() {
+	vector<int> vec ={1,2,3,4,5,6,7};
+  vector<vector<int>> result = decompose(vec);
+  for(int i=0; i<result.size(); i++){
+    for(int j=0; j<result[i].size(); j++){
+      cout << result[i][j] <<endl;
+    }
+    cout <<"this separates individual vecs"<<endl;
+  }
+  
+	return 0;
+}

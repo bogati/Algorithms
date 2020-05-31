@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+/*
+ 2b. Given an integer array, print each item backwards 
+ using Helper Method Recursion
+ */
+ 
+ void helper(vector<int> vec, int i){
+   //base case 
+   if(i>=vec.size()){
+     return;
+   }
+   //rec case 
+   helper(vec,i+1);
+   cout << vec[i] <<endl ;
+   
+ }
+ 
+  void printRev(vector<int> vec){
+   
+   helper(vec,0);
+   
+ }
+ 
+int main() {
+	vector<int> vec ={1,2,3,4,5,6,7};
+  printRev(vec);
+  
+	return 0;
+}

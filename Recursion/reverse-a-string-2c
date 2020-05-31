@@ -1,0 +1,33 @@
+//https://codeinterview.io/CMXFWFQZPB 
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+/*
+ 2c. Reverse a string using Helper Method Recursion
+ hello -> 5/2 = 2 
+ */
+ void helper(string& str, int i, int j){
+   //base case case 
+   if(i>(str.length()-1)/2){
+     return;
+   }
+   //recursive case 
+   char temp = str[i];
+   str[i] = str[j];
+   str[j] = temp;
+   helper(str,i+1,j-1);
+ }
+ string rev_Str(string str){
+  helper(str,0,str.length()-1);
+  return str;
+ } //end of rev_Str 
+ 
+int main() {
+	//vector<int> vec ={1,2,3,4,5,6,7};
+  //string str = "BimalaBogati";
+  string str = "aaaaaaaa";
+  cout << rev_Str(str);
+  
+	return 0;
+}

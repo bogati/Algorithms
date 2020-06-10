@@ -1,0 +1,60 @@
+#2g. Merge two sorted arrays using the Helper Method Recursion
+#include <iostream>
+#include <vector>
+using namespace std;
+void mergeHelper(vector<int> a1,vector<int> a2, vector<int> &result,int& i, int&j){
+  if(i>=a1.size() || j>=a2.size()){
+    return;
+  }
+  //recursive case 
+  if(a1[i] <= a2[j]){
+    result.push_back(a1[i]);
+    i=i+1;
+  }else{
+    result.push_back(a2[j]);
+    j=j+1;
+  }
+  mergeHelper(a1,a2,result,i,j);
+  
+}
+
+vector<int> mergeArray(vector<int> a1,vector<int>a2){
+  vector<int> result;
+  int i=0;
+  int j=0;
+ 
+ mergeHelper(a1,a2,result,i,j);
+  if(i<a1.size()){
+    while(i<a1.size()){
+      
+      result.push_back(a1[i]);
+      i=i+1;
+    }
+  } 
+   if(j<a2.size()){
+    while(j<a2.size()){
+      result.push_back(a2[j]);
+      j=j+1;
+    }
+  }
+  cout << "last val"<<result[a1.size()+a2.size()-1]<<endl;
+  return result;
+} //end of the MergeHelper function 
+
+
+
+int main() {
+  vector<int> a1 ={5,6,7};
+  vector<int> a2 ={1,2,3};
+  a1 = {1,1,1,1};
+  a2 = {2,2,2};
+  vector<int> result;
+  int i=0;
+  int j=0;
+	result = mergeArray(a1,a2);
+  for(int k=0; k<(a1.size()+a2.size()); k++){
+    cout << result[k] <<endl; 
+  }
+  
+	return 0;
+}

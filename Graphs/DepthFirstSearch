@@ -1,0 +1,36 @@
+https://codeinterview.io/YYLWEFIUDL
+
+#include <iostream>
+using namespace std;
+
+//DFS : https://www.techiedelight.com/depth-first-search/ 
+
+
+class Node {
+public:
+    int val;
+    Node* next;
+    Node* random;
+    
+    Node(int _val) {
+        val = _val;
+        //if NULL is not assigned random address such as 
+        //0x4007c0 would be provided 
+        next = NULL;
+        random = NULL;
+    }
+};
+
+
+int main() {
+  
+  Node temp = Node(6);
+  Node* newNode = &temp;
+  
+  cout << newNode->val<<endl;
+  cout << newNode->next<<endl;
+  cout <<temp.val<<endl;
+  cout <<temp.next<<endl;
+	
+	return 0;
+}

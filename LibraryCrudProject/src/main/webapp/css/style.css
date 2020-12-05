@@ -1,0 +1,179 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+
+:root{
+
+    --bs: 0.25em  0.25em 0.75em rgba(0,0,0,.25),
+          0.125em 0.125em 0.25em rgba(0,0,0,.15);
+
+  --light-primary: #E6E6FA;
+  --medium-primary: #c1c1ec;
+  --darker-primary: hsl(240, 65%, 76%); 
+  --secondary-color: #363646;
+
+}
+
+html, body {
+	background-color: white;
+	font-family: "Roboto", sans-serif;
+	
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 20px;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%; 
+  background-color: black;
+  text-align: center;
+  padding: 10px;
+  color: white;
+}
+
+#nav-center {
+	margin-left: 10px;
+}
+
+#account-created {
+	font-size: 40px;
+	text-align: center;
+	margin-top: 200px;
+}
+
+.dashboard{
+	margin-top: 2em;
+	padding: 1em;
+	background-color: var(--secondary-color);
+	box-shadow: var(--bs);
+	text-align: center;
+}
+
+.book-form,
+.book-card,
+.dashboard-card{
+	margin-top: 1em; 
+	margin-left: auto; 
+	margin-right: auto; 
+	background-color: white; 
+	box-shadow: var(--bs);
+	padding: 1em;
+	height: 15em;
+}
+
+.book-card{
+	padding: 3em;
+	min-height: 20em;
+	text-align: left;
+}
+
+.book-form{
+	min-height: 20em;
+}
+
+.edit-btn,
+.delete-btn,
+.dash-btn{
+  margin: 0 .5em;
+  width: 10em;
+  border: none;
+  border-radius: 5px;
+  padding: .25em;
+  font-size: 1em;
+  text-decoration: none;
+  color: #fff;
+  background-color: var(--medium-primary);
+  box-shadow: 0px 5px 0px 0px var(--darker-primary);
+  font-weight: bold;
+}
+
+.approve-btn, .deny-btn{
+	margin: 0 .25em;
+	border: none;
+	width: 2em;
+	border-radius: 50px;
+	color: #fff;
+  	padding: .25em;
+  	font-size: 1em;
+}
+
+.edit-btn,
+.approve-btn{
+  background-color: rgb(112, 228, 112);
+  box-shadow: 0px 3.5px 0px 0px rgb(80, 185, 66);
+}
+
+a:hover{
+	text-decoration: none;
+}
+
+.edit-btn:hover,
+.approve-btn:hover{
+  background-color: rgb(80, 185, 66);
+}
+
+.delete-btn,
+.deny-btn{
+	background-color: rgb(228, 91, 91);
+	box-shadow: 0px 3.5px 0px 0px rgb(240, 44, 44);
+}
+
+.delete-btn:hover,
+.deny-btn:hover{
+  background-color: rgb(240, 44, 44);
+}
+
+.dash-btn:hover{
+  background-color: var(--light-primary);
+  color: var(--darker-primary);
+}
+
+.delete-btn:active,
+.edit-btn:active,
+.dash-btn:active, 
+.deny:active,
+.apporve:active {
+  transform: translate(0px, 5px);
+  -webkit-transform: translate(0px, 5px);
+  box-shadow: 0px 1px 0px 0px;
+  outline: 0;
+  border: none;
+}
+
+.book-row,
+.book-row-titles,
+.patron-row-titles,
+.patron-row{
+	text-align: center;
+	margin: .75em 0;
+    padding: .5em 0;
+	
+}
+
+.book-row-titles,
+.patron-row-titles{
+	font-weight: bold;
+}
+
+.book-row,
+.patron-row{
+	box-shadow: 1px 1px 1px 1px var(--secondary-color);
+}
+#myInput {
+	display: block;
+    padding: .375rem .75rem;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+#patronHistoryTable {
+	margin-bottom: 100px;
+}
